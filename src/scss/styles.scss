@@ -1,0 +1,113 @@
+// Color Variables
+$body-bg: #fff;
+$color-base: #000;
+$color-invert: #fff;
+$color-primary: #103259;
+$color-secondary: #FDB913;
+
+// Typography 
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: Arial, Tahoma, Geneva, sans-serif;
+$font-heading: $font-primary;
+ 
+$fontWeight-lightest:100;
+$fontWeight-light: 300;
+$fontWeight-normal: 400;
+$fontWeight-medium: 500;
+$fontWeight-semibold: 600;
+$fontWeight-bold: 700;
+
+$typography-margin-bottom: 1em;
+ 
+// Breakpoints 
+// You can convert these at http://pxtoem.com 
+$bp-s: 20em; // 320px 
+$bp-s-max: 29.938em; // 479px
+$bp-sw: 30em; // 480px
+$bp-sw-max: 47.938em; // 767px
+$bp-m: 48em; // 768px  
+$bp-m-max: 59.938em;// 959px
+$bp-mw: 60em; // 960px
+$bp-mw-max: 71.188em; // 1139px 
+$bp-l: 72em; // 1140px
+$bp-l-max: 81.188em; // 1299px
+$bp-xl: 81.25em; // 1300px 
+  
+// Grid
+$grid-gutter: 15px; 
+$grid-gutter-em: 0.938em; // Changing grid gutter to em causes a compiling error :/
+
+
+
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/print";
+
+// Core CSS
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/type";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/code";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/pager";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/labels";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/media";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+
+// Utility classes
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+// SASS Functions and Modules 
+@import "utilities";
+    
+// Specific Styles
+@import "globals/normalize";
+@import "globals/boilerplate";
+@import "globals/forms";
+@import "globals/grid";
+@import "globals/navigation";
+@import "globals/primarylayout";
+@import "globals/print";
+
+// Modules
+@import "components/components";
+@import "components/custom/alerts";
+@import "components/custom/hero";
+@import "components/custom/callouts";
+@import "components/custom/carousel";
+
+// Third Party Styles 
+@import "vendor/slick";
+@import "vendor/slick-theme";
+
+// Print 
+@import "globals/print";

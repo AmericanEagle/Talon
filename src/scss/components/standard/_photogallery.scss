@@ -1,0 +1,99 @@
+/* ==========================================================================
+PHOTO GALLERY
+========================================================================== */
+
+.photo-gallery {
+  	margin:0 auto; padding:0;
+
+  	.photo-gallery-item {
+		position: relative;
+
+		img {
+	  		display: block;
+	  		margin: 0 auto;
+	  		width: 100%;
+		}
+
+		> a {
+		  	position: relative;
+	  		display: block;
+		}
+
+		.content {
+	 		position: absolute; bottom: 0; left: 0; z-index: 10;
+	  		width: 100%;
+	  		padding: 15px 10px;
+	  		background: rgba(0,0,0,.65);
+	  		text-align: center;
+
+	  		p { margin: 0; color: #fff; }
+		}
+  	}
+}
+
+.photo-gallery-thumbs {
+  	position: relative;
+  	margin: 0; padding: 0;
+
+  	.slick-list { padding: 0 !important; }
+  	//place in your own arrow icons either through JS or CSS
+
+  	.slick-arrow {
+		display: inline-block;
+	  	z-index: 10;
+		padding: 0 10px;
+		width: 40px; height: 50px;
+		font-size: 3em; color: #fff !important;
+		line-height: 1;
+	  	background: rgba(0,0,0,.65);
+	  	transform: translateY(-50%);
+	  	transition: all 0.3s ease-in-out;
+
+		&:before, &:after {
+	  		color: inherit;
+	  		position: absolute; top: 50%; left: 50%;
+	  		transform: translateY(-50%) translateX(-50%);
+		}
+		
+		&:hover, &:focus { background: $color-primary; }
+		&.slick-prev { left: 0; }
+		&.slick-next { right: 8px; }
+  	}
+
+  	li {
+		position: relative;
+		text-align: center;
+		cursor: pointer;
+		overflow: hidden;
+ 
+		.item {
+	  		position: relative;
+	  		margin-right: 10px;
+
+	  		.photo-gallery-item {
+				position: relative;
+				padding-top: 50%;
+
+				.media {
+		  			position: absolute; top: 0;
+		  			height: 100%; width: 100%;
+		  			background-size: cover; background-position: 50% 50%;
+				}
+	  		}
+		}
+
+		&.slick-center {
+	  		.item:after {
+				content: "";
+				position: absolute; bottom: 0; left: 0;
+				width: 100%; height: 3px;
+				background: $color-primary;
+	  		}
+		}
+
+		img {
+	  		display: block;
+	  		margin: 0 auto;
+		}
+  	}
+}

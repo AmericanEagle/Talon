@@ -1,0 +1,73 @@
+/* ================================================================
+
+#Pagination
+
+Standard Sitefinity pager. Builds off of the format: 
+
+`<div class="sf_pagerNumeric"><a class="sf_PagerCurrent" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a></div>`
+
+   ================================================================ */
+
+.sf_pagerNumeric {
+	@extend .clearfix;
+	margin: 0 0 1em;
+	text-align: right;
+
+	a {
+		display: inline-block;
+		padding: 0 0.2em;
+		font-family: $font-secondary; @include x-rem(font-size, 14px); color: $color-primary;
+		text-transform: uppercase; text-decoration: none;
+
+		&:hover, &:focus { text-decoration: underline; }
+
+		&.disabled {
+			color: hsl(0%, 0%, 60%);
+
+			&:hover, &:focus { text-decoration: none; }
+		}
+	}
+
+	span {
+		display: inline-block;
+		padding: 0 0.2em;
+		font-family: $font-secondary; @include x-rem(font-size, 14px); color: hsl(0%, 0%, 60%);
+		text-transform: uppercase;
+	}
+
+	.next {
+		&:before{
+			// content: 'Next';
+		  	display: inline-block; content: '';
+			position: relative; top: -2px;
+			width:0; height: 0;
+			border-style: solid; border-width: 3px 0 3px 5px; border-color: transparent transparent transparent $color-primary;
+		}
+
+
+		&.disabled, &:hover, &:focus {
+			&:before { border-color: transparent transparent transparent hsl(0%, 0%, 60%); }
+		}
+
+	}
+
+	.prev {
+		&:before{
+			// content: 'Previous';
+		  	display: inline-block; content: '';
+			position: relative; top: -2px;
+			width:0; height: 0;
+			border-style: solid; border-width: 3px 5px 3px 0; border-color: transparent $color-primary transparent transparent;
+		}
+
+		&.disabled, &:hover, &:focus {
+			&:before { border-color: transparent hsl(0%, 0%, 60%) transparent transparent; }
+		}
+	}
+
+	.sf_PagerCurrent {
+		color: hsl(0%, 0%, 60%);
+
+		&:hover, &:focus { text-decoration: none; }
+	}
+}

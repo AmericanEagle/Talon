@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Global Modules
+   - We define modules as larger content that usually have a listing and detailed view.
+   ========================================================================== */
+
+
+/* Module
+   - Used to define large, page wide tools (e.g. News listing, Events Calendar)
+   ========================================================================== */
+
+.module {
+	margin-bottom: 1em;
+
+	.header {
+		.title {
+			margin-bottom:0;
+		}
+	}
+
+	.content {
+		margin-bottom: $typography-margin-bottom;
+	}
+
+	.summary {
+		margin-bottom: $typography-margin-bottom;
+		font-weight: bold; font-style: italic;
+	}
+}
+
+
+/* Widget
+   - Used to define individual parts that make up a page (e.g. News rail listing)
+   ========================================================================== */
+
+.widget {
+	margin-bottom: 1em;
+
+	.header {
+		padding:10px; 
+		background:$color-primary;
+
+		.title {
+			margin:0;
+		}
+	}
+
+	.content {
+		padding:10px;
+	}
+
+	.summary {
+		
+	}
+}
+
+
+/* Item
+   - Used to define single piece within a component (e.g. News article within a news listing)
+   ========================================================================== */
+
+.item {
+	position: relative;
+	display: block;
+	padding: 0;
+
+	// Supports aside content in the list
+	.aside {
+		margin: 1em auto;
+		max-width: 200px;
+		//max-height: 200px;
+	}
+}
+
+@media (min-width:$bp-m){
+	.item {
+		.aside {
+			display: table-cell;
+			width: 80px;
+			vertical-align: top;
+		}
+
+		.item-content {
+			display: table-cell;
+			vertical-align: top;
+           	padding:0 15px;
+		}
+	}
+}
+
+
+/* Meta Content
+   - This is content that extends or defines the content that it is pared with.
+   - Examples: date, author, tag
+   ========================================================================== */
+
+.meta {
+	display: block;
+	margin: 0 0 $typography-margin-bottom; padding: 0;
+}
+
+.meta-item {
+	display:block;
+	
+	&.author { font-weight:bold; @include x-rem(font-size, 15px); }
+	&.date { margin-top:10px; font-style:italic; @include x-rem(font-size, 16px); }
+}
+
+
+/* Core List Styles
+   - Provides core styling for item list
+   ========================================================================== */
+
+.item-list {
+	display: block;
+	list-style:none;
+	margin: 0 0 $grid-gutter; padding: 0;
+
+	.item + .item {
+		margin-top: $grid-gutter; padding-top: $grid-gutter - 5px; // offset for line-height on title
+		border-top: 1px solid rgba($color-primary, 0.2);
+	}
+}
+
+
+
+
+/* Include individual components
+   ========================================================================== */
+
+
+// Import standard module styles - Comment out/remove what you don't need.
+@import "standard/tabs";
+@import "standard/faq";
+@import "standard/pager";
+@import "standard/pagetools";
+@import "standard/commentsandrating";
+//@import "standard/search";
+//@import "standard/events"; 
+@import "standard/news";
+@import "standard/photogallery";

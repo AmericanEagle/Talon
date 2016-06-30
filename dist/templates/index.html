@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!-- Based on HTML5 Bones | http://html5bones.com -->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<title> Style Guide </title>
+		
+		<!-- Mobile-friendly viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!-- Style sheet link -->
+		<link href="../../css/styles.min.css" rel="stylesheet" media="all">
+        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500' rel='stylesheet' type='text/css'>
+        <script type="text/javascript">
+            (function() {
+                "use strict";
+                var el = document.getElementsByTagName('html')[0],
+                    nojsClass = "no-js",
+                    jsClass = "js";
+
+                if (el.classList) {
+                    el.classList.remove(nojsClass);
+                    el.classList.add(jsClass);
+                } else {
+                    el.className = el.className.replace(new RegExp('(^|\\b)' + nojsClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    el.className += ' ' + jsClass;
+                } 
+            }());
+        </script>
+	</head>
+	
+	<body>
+        <div class="svg-legend" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" focusable="false">
+                <symbol id="icon-cart" viewBox="0 0 24 24"><title>shopping_cart</title><path class="path1" d="M17.016 18c1.078 0 1.969 0.938 1.969 2.016s-0.891 1.969-1.969 1.969-2.016-0.891-2.016-1.969 0.938-2.016 2.016-2.016zM0.984 2.016h3.281l0.938 1.969h14.813c0.563 0 0.984 0.469 0.984 1.031 0 0.188-0.047 0.328-0.141 0.469l-3.563 6.469c-0.328 0.609-0.984 1.031-1.734 1.031h-7.453l-0.891 1.641-0.047 0.141c0 0.141 0.094 0.234 0.234 0.234h11.578v2.016h-12c-1.078 0-1.969-0.938-1.969-2.016 0-0.328 0.094-0.656 0.234-0.938l1.359-2.484-3.609-7.594h-2.016v-1.969zM6.984 18c1.078 0 2.016 0.938 2.016 2.016s-0.938 1.969-2.016 1.969-1.969-0.891-1.969-1.969 0.891-2.016 1.969-2.016z"></path></symbol>
+                <symbol id="icon-search" viewBox="0 0 32 32"><title>search</title><path class="path1" d="M19.427 20.427c-1.39 0.99-3.090 1.573-4.927 1.573-4.694 0-8.5-3.806-8.5-8.5s3.806-8.5 8.5-8.5c4.694 0 8.5 3.806 8.5 8.5 0 2.347-0.951 4.472-2.49 6.010l5.997 5.997c0.275 0.275 0.268 0.716-0.008 0.992-0.278 0.278-0.72 0.28-0.992 0.008l-6.081-6.081zM14.5 21c4.142 0 7.5-3.358 7.5-7.5s-3.358-7.5-7.5-7.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5v0z"></path></symbol>
+                <symbol id="icon-twitter" viewBox="0 0 20 20"><title>twitter</title><path class="path1" d="M17.316 6.246c0.008 0.162 0.011 0.326 0.011 0.488 0 4.99-3.797 10.742-10.74 10.742-2.133 0-4.116-0.625-5.787-1.697 0.296 0.035 0.596 0.053 0.9 0.053 1.77 0 3.397-0.604 4.688-1.615-1.651-0.031-3.046-1.121-3.526-2.621 0.23 0.043 0.467 0.066 0.71 0.066 0.345 0 0.679-0.045 0.995-0.131-1.727-0.348-3.028-1.873-3.028-3.703 0-0.016 0-0.031 0-0.047 0.509 0.283 1.092 0.453 1.71 0.473-1.013-0.678-1.68-1.832-1.68-3.143 0-0.691 0.186-1.34 0.512-1.898 1.861 2.285 4.644 3.787 7.781 3.945-0.064-0.277-0.097-0.564-0.097-0.861 0-2.084 1.689-3.773 3.774-3.773 1.086 0 2.067 0.457 2.756 1.191 0.859-0.17 1.667-0.484 2.397-0.916-0.282 0.881-0.881 1.621-1.66 2.088 0.764-0.092 1.49-0.293 2.168-0.594-0.506 0.758-1.146 1.422-1.884 1.953z"></path></symbol>
+                <symbol id="icon-facebook" viewBox="0 0 16 16"><title>facebook</title><path class="path1" d="M9.5 3h2.5v-3h-2.5c-1.93 0-3.5 1.57-3.5 3.5v1.5h-2v3h2v8h3v-8h2.5l0.5-3h-3v-1.5c0-0.271 0.229-0.5 0.5-0.5z"></path></symbol>
+                <symbol id="icon-google" viewBox="0 0 20 20"><title>google</title><path class="path1" d="M1.989 5.589c0 1.494 0.499 2.572 1.482 3.205 0.806 0.52 1.74 0.598 2.226 0.598 0.118 0 0.213-0.006 0.279-0.010 0 0-0.154 1.004 0.59 1.996h-0.034c-1.289 0-5.493 0.269-5.493 3.727 0 3.516 3.861 3.695 4.636 3.695 0.061 0 0.097-0.002 0.097-0.002 0.008 0 0.063 0.002 0.158 0.002 0.497 0 1.782-0.062 2.975-0.643 1.548-0.75 2.333-2.059 2.333-3.885 0-1.764-1.196-2.814-2.069-3.582-0.533-0.469-0.994-0.873-0.994-1.266 0-0.4 0.337-0.701 0.762-1.082 0.689-0.615 1.339-1.492 1.339-3.15 0-1.457-0.189-2.436-1.354-3.057 0.121-0.062 0.551-0.107 0.763-0.137 0.631-0.086 1.554-0.184 1.554-0.699v-0.099h-4.599c-0.046 0.002-4.651 0.172-4.651 4.389zM9.413 14.602c0.088 1.406-1.115 2.443-2.922 2.574-1.835 0.135-3.345-0.691-3.433-2.096-0.043-0.676 0.254-1.336 0.835-1.863 0.589-0.533 1.398-0.863 2.278-0.928 0.104-0.006 0.207-0.012 0.31-0.012 1.699 0.001 2.849 0.999 2.932 2.325zM8.212 4.626c0.451 1.588-0.23 3.246-1.316 3.553-0.125 0.035-0.253 0.052-0.384 0.052-0.994 0-1.979-1.006-2.345-2.393-0.204-0.776-0.187-1.458 0.047-2.112 0.229-0.645 0.643-1.078 1.163-1.225 0.125-0.035 0.254-0.053 0.385-0.053 1.2 0 1.972 0.498 2.45 2.178zM16 8v-3h-2v3h-3v2h3v3h2v-3h3v-2h-3z"></path></symbol>
+                <symbol id="icon-linkedin" viewBox="0 0 20 20"><title>linkedin</title><path class="path1" d="M5 3c0 1.062-0.71 1.976-2.001 1.976-1.215 0-1.999-0.862-1.999-1.924 0-1.090 0.76-2.052 2-2.052s1.976 0.91 2 2zM1 19v-13h4v13h-4z"></path><path class="path2" d="M7 10.444c0-1.545-0.051-2.836-0.102-3.951h3.594l0.178 1.723h0.076c0.506-0.811 1.746-2 3.822-2 2.532 0 4.432 1.695 4.432 5.342v7.442h-4v-6.861c0-1.594-0.607-2.81-2-2.81-1.062 0-1.594 0.86-1.873 1.569-0.102 0.254-0.127 0.608-0.127 0.963v7.139h-4v-8.556z"></path></symbol>
+                <symbol id="icon-youtube" viewBox="0 0 27 32"><title>youtube</title><path class="path1" d="M17.339 22.214v3.768q0 1.196-0.696 1.196-0.411 0-0.804-0.393v-5.375q0.393-0.393 0.804-0.393 0.696 0 0.696 1.196zM23.375 22.232v0.821h-1.607v-0.821q0-1.214 0.804-1.214t0.804 1.214zM6.125 18.339h1.911v-1.679h-5.571v1.679h1.875v10.161h1.786v-10.161zM11.268 28.5h1.589v-8.821h-1.589v6.75q-0.536 0.75-1.018 0.75-0.321 0-0.375-0.375-0.018-0.054-0.018-0.625v-6.5h-1.589v6.982q0 0.875 0.143 1.304 0.214 0.661 1.036 0.661 0.857 0 1.821-1.089v0.964zM18.929 25.857v-3.518q0-1.304-0.161-1.768-0.304-1-1.268-1-0.893 0-1.661 0.964v-3.875h-1.589v11.839h1.589v-0.857q0.804 0.982 1.661 0.982 0.964 0 1.268-0.982 0.161-0.482 0.161-1.786zM24.964 25.679v-0.232h-1.625q0 0.911-0.036 1.089-0.125 0.643-0.714 0.643-0.821 0-0.821-1.232v-1.554h3.196v-1.839q0-1.411-0.482-2.071-0.696-0.911-1.893-0.911-1.214 0-1.911 0.911-0.5 0.661-0.5 2.071v3.089q0 1.411 0.518 2.071 0.696 0.911 1.929 0.911 1.286 0 1.929-0.946 0.321-0.482 0.375-0.964 0.036-0.161 0.036-1.036zM14.107 9.375v-3.75q0-1.232-0.768-1.232t-0.768 1.232v3.75q0 1.25 0.768 1.25t0.768-1.25zM26.946 22.786q0 4.179-0.464 6.25-0.25 1.054-1.036 1.768t-1.821 0.821q-3.286 0.375-9.911 0.375t-9.911-0.375q-1.036-0.107-1.83-0.821t-1.027-1.768q-0.464-2-0.464-6.25 0-4.179 0.464-6.25 0.25-1.054 1.036-1.768t1.839-0.839q3.268-0.357 9.893-0.357t9.911 0.357q1.036 0.125 1.83 0.839t1.027 1.768q0.464 2 0.464 6.25zM9.125 0h1.821l-2.161 7.125v4.839h-1.786v-4.839q-0.25-1.321-1.089-3.786-0.661-1.839-1.161-3.339h1.893l1.268 4.696zM15.732 5.946v3.125q0 1.446-0.5 2.107-0.661 0.911-1.893 0.911-1.196 0-1.875-0.911-0.5-0.679-0.5-2.107v-3.125q0-1.429 0.5-2.089 0.679-0.911 1.875-0.911 1.232 0 1.893 0.911 0.5 0.661 0.5 2.089zM21.714 3.054v8.911h-1.625v-0.982q-0.946 1.107-1.839 1.107-0.821 0-1.054-0.661-0.143-0.429-0.143-1.339v-7.036h1.625v6.554q0 0.589 0.018 0.625 0.054 0.393 0.375 0.393 0.482 0 1.018-0.768v-6.804h1.625z"></path></symbol>
+                <symbol id="icon-mail" viewBox="0 0 20 20"><title>mail</title><path class="path1" d="M1.574 5.286c0.488 0.262 7.248 3.894 7.5 4.029s0.578 0.199 0.906 0.199c0.328 0 0.654-0.064 0.906-0.199s7.012-3.767 7.5-4.029c0.489-0.263 0.951-1.286 0.054-1.286h-16.919c-0.897 0-0.435 1.023 0.053 1.286zM18.613 7.489c-0.555 0.289-7.387 3.849-7.727 4.027s-0.578 0.199-0.906 0.199-0.566-0.021-0.906-0.199-7.133-3.739-7.688-4.028c-0.39-0.204-0.386 0.035-0.386 0.219s0 7.293 0 7.293c0 0.42 0.566 1 1 1h16c0.434 0 1-0.58 1-1 0 0 0-7.108 0-7.292s0.004-0.423-0.387-0.219z"></path></symbol>
+                <symbol id="icon-thumbs-up" viewBox="0 0 29 32"><title>thumbs-up</title><path class="path1" d="M4.571 24q0-0.464-0.339-0.804t-0.804-0.339q-0.482 0-0.813 0.339t-0.33 0.804q0 0.482 0.33 0.813t0.813 0.33q0.464 0 0.804-0.33t0.339-0.813zM7.429 14.857v11.429q0 0.464-0.339 0.804t-0.804 0.339h-5.143q-0.464 0-0.804-0.339t-0.339-0.804v-11.429q0-0.464 0.339-0.804t0.804-0.339h5.143q0.464 0 0.804 0.339t0.339 0.804zM28.571 14.857q0 1.536-0.982 2.661 0.268 0.786 0.268 1.357 0.054 1.357-0.768 2.446 0.304 1 0 2.089-0.268 1.018-0.964 1.679 0.161 2-0.875 3.232-1.143 1.357-3.518 1.393h-2.304q-1.179 0-2.571-0.277t-2.17-0.518-2.152-0.705q-2.196-0.768-2.821-0.786-0.464-0.018-0.804-0.348t-0.339-0.795v-11.446q0-0.446 0.321-0.777t0.768-0.366q0.429-0.036 1.357-1.054t1.804-2.161q1.214-1.554 1.804-2.143 0.321-0.321 0.554-0.857t0.313-0.866 0.241-1.080q0.125-0.696 0.223-1.089t0.348-0.929 0.607-0.893q0.339-0.339 0.804-0.339 0.821 0 1.473 0.188t1.071 0.464 0.714 0.723 0.429 0.804 0.214 0.893 0.089 0.804 0.009 0.696q0 0.679-0.17 1.357t-0.339 1.071-0.491 1q-0.054 0.107-0.179 0.321t-0.196 0.393-0.143 0.429h4.946q1.393 0 2.411 1.018t1.018 2.411z"></path></symbol>
+                <symbol id="greyscale"><filter id="greyscale"><feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0" /></filter></symbol>
+            </svg>
+        </div>
+		<header class="site-header" role="banner"> 
+            <div class="alert alert-information">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="smallest"><strong>Important Date:</strong> The March 14 registration deadline is one week away. <a href="#" class="fontweight-semibold">View Academic Calendar</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="header-inner">
+                <div class="container">
+                    <div class="header-top row">
+                        <div class="col-lg-8">
+                            <a href="pages/home.html" class="brand"><img src="../images/logo.png" alt="UCSD" /></a> 
+                        </div>
+                        <div class="col-lg-4">
+                            <ul class="header-links">
+                                <li>
+                                    <a href="#" class="drop-trigger">Work With Us</a>
+                                    <ul>
+                                        <li><a href="#">Item 1</a></li>
+                                        <li><a href="#">Item 2</a></li>
+                                        <li><a href="#">Item 3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="drop-trigger">Sign In</a>
+                                    <ul>
+                                        <li><a href="#">Item 1</a></li>
+                                        <li><a href="#">Item 2</a></li>
+                                        <li><a href="#">Item 3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="cart-link"><svg class="icon" aria-hidden="true" focusable="false" role="presentation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-cart"></use></svg></a></li>
+                                <li><a href="#" class="search-toggle"><svg class="icon" aria-hidden="true" focusable="false" role="presentation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-search"></use></svg></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- navigation.nunjucks -->
+<nav class="main-nav nav-bar">
+    <a href="#" class="toggle-menu">
+        <span><span class="visuallyhidden">Toggle Menu</span></span>
+    </a>
+    <ul class="cm-menu">
+        <li><a href="#">Courses &amp; Programs</a></li>
+        <li><a href="#">News &amp; Events</a></li>
+        <li><a href="#">Community &amp; Research</a></li>
+        <li><a href="#">Student Resources</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
+            </div>
+		</header>
+	
+		<main role="main">
+	  		
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Style Guide</h1>
+    
+    		<p>Use the HTML5 <code>main</code> element to wrap the central content of your page.</p>
+		
+			<hr />
+
+			<!-- Headings -->
+
+			<h2>Headings</h2>
+
+			<h1>Heading 1</h1>
+			<h2>Heading 2</h2>
+			<h3>Heading 3</h3>
+			<h4>Heading 4</h4>
+			<h5>Heading 5</h5>
+			<h6>Heading 6</h6>
+
+			<hr />
+
+			<!-- Lists -->
+
+    		<h2>Lists</h2>
+    
+    		<ul>
+    		  <li>List item</li>
+    		  <li>List item</li>
+    		  <li>List item</li>
+    		  <li>List item</li>
+    		</ul>
+
+    		<ol>
+    		  <li>List item</li>
+    		  <li>List item</li>
+    		  <li>List item</li>
+    		  <li>List item</li>
+    		</ol>
+    
+			<hr />
+
+			<!-- Tables -->
+
+    		<h2>Tables</h2>
+    
+    		<table class="table">
+				<thead>
+					<tr>
+						<th>Table Heading 1</th>
+						<th>Table Heading 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Table Item 1</td>
+						<td>Table Item 2</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>Table Footer Item 1</td>
+						<td>Table Footer Item 2</td>
+					</tr>
+				</tfoot>
+    		</table>
+
+			<hr />
+
+			<!-- Buttons -->
+
+    		<h2>Buttons</h2>
+
+			<a href="#" class="btn btn-default">Default!</a>
+			<a href="#" class="btn btn-primary">Primary!</a>
+
+			<hr />
+
+			<!-- Global Modules -->
+
+    		<h2>Global Modules</h2>
+
+    		<h3>Modules</h3>
+
+    		<div class="module">
+				<div class="module-header">
+					<h2>Module Header</h2>
+				</div>
+				<div class="module-content">
+					<p>Module Content!</p>
+				</div>
+    		</div>
+
+    		<h3>Widgets</h3>
+
+    		<div class="widget">
+				<div class="widget-header">
+					<h3>Widget Header</h3>
+				</div>
+				<div class="widget-content">
+					<p>Widget Content!</p>
+				</div>
+    		</div>
+
+			<aside role="complementary">
+				<h3>Secondary page content</h3>
+
+    			<p>Use the <code>aside</code> element if you need to include content that is not central to the focus of the page or is clearly of secondary importance.</p>
+			</aside>
+		</div>
+	</div>
+</div>
+
+		</main>
+	
+		<footer class="site-footer" role="contentinfo">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="footer-nav">
+                                <ul class="menu">
+                                    <li class="footer-heading"><a href="#">Courses &amp; Programs</a></li>
+                                    <li><a href="#">Areas of Study</a></li>
+                                    <li><a href="#">International Programs</a></li>
+                                    <li><a href="#">K-12 Programs</a></li>
+                                    <li><a href="#">Osher Lifelong Learning Inst.</a></li>
+                                    <li><a href="#" class="more">More</a></li>
+                                </ul>
+                                <ul class="menu">
+                                    <li class="footer-heading"><a href="#">News &amp; Events</a></li>
+                                    <li><a href="#">UC San Diego Extension Blog</a></li>
+                                    <li><a href="#">Event Calendar</a></li>
+                                    <li><a href="#">Videos</a></li>
+                                    <li><a href="#">Press Kit</a></li>
+                                    <li><a href="#" class="more">More</a></li>
+                                </ul>
+                                <ul class="menu">
+                                    <li class="footer-heading"><a href="#">Community &amp; Research</a></li>
+                                    <li><a href="#">Community Initiatives</a></li>
+                                    <li><a href="#">Research</a></li>
+                                    <li><a href="#">UCSD-TV / UCTV</a></li>
+                                    <li><a href="#">Public Events &amp; Lectures</a></li>
+                                    <li><a href="#" class="more">More</a></li>
+                                </ul>
+                                <ul class="menu">
+                                    <li class="footer-heading"><a href="#">Student Resources</a></li>
+                                    <li><a href="#">International Student</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Career Services</a></li>
+                                    <li><a href="#">Financial Assistance</a></li>
+                                    <li><a href="#">Advising</a></li>
+                                    <li><a href="#" class="more">More</a></li>
+                                </ul>
+                                <ul class="menu">
+                                    <li class="footer-heading"><a href="#">About Extension</a></li>
+                                    <li><a href="#">Instructors</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Locations, Maps &amp; Directions</a></li>
+                                    <li><a href="#">About San Diego</a></li>
+                                    <li><a href="#" class="more">More</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="../images/logo-white.png" alt="UCSand Diego Extension White Logo"/>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">Terms of Use</a><br/>
+                            <a href="#">Privacy Policy</a><br/>
+                            <a href="#">Site Map</a>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="footer-heading"><a href="#">Stay in Touch</a></h3>
+                            <p>Recieve emails about upcoming events and courses</p>
+                            <a href="#" class="button alternate">Sign Up</a>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="footer-heading">
+                                <a href="#">Connect With Us</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur ipsum dolor.</p>
+                                <ul class="social-links">
+                                    <li><a href="#"><span class="visuallyhidden">Twitter</span><svg class="icon twitter" aria-hidden="true" focusable="false" role="presentation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-twitter"></use></svg></a></li>
+                                    <li><a href="#"><span class="visuallyhidden">Facebook</span><svg class="icon facebook" aria-hidden="true" focusable="false" role="presentation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-facebook"></use></svg></a></li>
+                                    <li><a href="#"><span class="visuallyhidden">Google Plus</span><svg class="icon google" aria-hidden="true" focusable="false" role="presentation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-google"></use></svg></a></li>
+                                    <li><a href="#"><span class="visuallyhidden">LinkedIn</span><svg class="icon linkedin" aria-hidden="true" focusable="false" role="presentation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-linkedin"></use></svg></a></li>
+                                </ul>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subfooter">
+                <div class="container">
+                    <div class="col-md-8"><small>Copyright &copy; <time datetime="2013">2015</time> Regents of the University of California. All Rights Reserved.</small></div>
+                    <div class="col-md-4">
+                        <a href="#" class="back-to-top">Back to top</a>
+                    </div>
+                </div>
+            </div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="../../js/all.min.js"></script>
+	</body>
+</html>

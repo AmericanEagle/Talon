@@ -1,0 +1,109 @@
+/* ================================================================
+   Tab Styles
+   ================================================================ */
+
+/* Responsive Tabs */
+
+/* Mobile First 
+.tab-section {
+    background: #e8e8e8;
+    border: 1px solid #222;
+}
+
+.tab-section + .tab-section {
+    border-top-width: 0;
+}
+
+.tab-content {
+    padding: 1em;
+    background: #fff;
+}
+
+.js .tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-nav {
+    display: none;
+}
+
+.tab-header {
+    display: block;
+    padding: 1em;
+    color: #5a5a5a;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.tab-header:hover, .tab-header:focus {
+    background: #dcdcdc;
+    text-decoration: none;
+}
+
+.js .tab-header:before {
+    content: '\2b\a0';
+}
+
+.js .tab-header.active:before {
+    content: '\2013\a0';
+}*/
+
+/* Large View - for most sites, min-width should be 60em or 40em, for this demo it's 30em
+@media (min-width: 30em) {
+    .tab-nav {
+        display: block;
+    }
+
+    .tab-nav a {
+        display: block;
+        padding: 0.5em 1.5em;
+        float: left;
+        background: #e8e8e8;
+        color: #5a5a5a;
+        text-decoration: none;
+    }
+
+    .tab-nav a:hover, .tab-nav a:focus {
+        text-decoration: none;
+        background: #fff;
+    }
+
+    .tab-nav a.active {
+        background: #fff;
+    }
+
+    .tab-header {
+        display: none;
+    }
+
+    .tabPanel {
+    }
+
+    .tab-content {
+        padding: 1em
+    }
+
+    .tab-section {
+        display: none;
+    }
+
+    .tab-section  + .tab-section {
+        border-top-width: 1px;
+    }
+
+    .tab-section.active {
+        display: block;
+    }
+
+    .tab-section.active .tab-content {
+        display: block;
+    }
+
+    .no-js .tab-section {
+        display: block;
+    }  
+} */

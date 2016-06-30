@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pagetitle %} Homepage {% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div class="slider" data-slick='{"slidesToShow":1, "slidesToScroll":1, "arrows": true, "fade": true}'>
+        <div class="slide-item" style="background-image:url(../images/placeholders/hero-image.jpg);">
+            <div class="slide-text">
+                <h3 class="title">Bridging Campus <strong class="color-secondary">&amp;</strong> Community</h3>
+                <p>UC San Diego Extension is where people learn, grow and connect. <br/> Explore <a href="#"><strong>#WhatsNext</strong></a>.</p>
+            </div>
+        </div>
+        <div class="slide-item">
+            <div class="slide-text">
+                <h3 class="title"></h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="search-control hinted-input">
+        <input id="searchText" type="text">
+        <label for="searchText" class="hint"><em>Search UC San Diego Extension</em></label>
+    </div>
+</section>
+<section class="page-tools">
+    <h2 class="visuallyhidden">Page Tools</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="breadcrumbs">
+                    <a href="#"></a><a href=""></a>
+                </div>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}          

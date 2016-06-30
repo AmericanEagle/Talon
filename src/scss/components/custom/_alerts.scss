@@ -1,0 +1,91 @@
+/* ================================================================
+   Alerts
+   ================================================================ */
+
+$alert-info-bg: #fdb913;
+$alert-info-color: #000;
+$alert-emergency-bg: #cc0001;
+$alert-emergency-color: #fff;
+
+.alert-mod { margin: 0; padding-top: $grid-gutter; }
+
+.alert-list {
+	display: block;
+	margin: 0 0 $grid-gutter; padding: 0;
+
+	li {
+		position: relative;
+		display: block;
+		margin: 0 0 $grid-gutter/2;
+	}
+}
+
+.alert {
+	position: relative;
+	padding: 12px $grid-gutter;
+	//@include breakpoint(m) { padding: $grid-gutter $grid-gutter * 4; }
+
+	.title {
+		display: inline;
+		margin: 0; padding-right: 0.5em;
+		text-transform: uppercase;
+		font-weight: bold; @include x-rem(font-size, 16px);
+
+		&:after { content: ':'; }
+
+		a {
+            color:$alert-info-color;
+			text-decoration: underline;
+			&:hover, &:focus { text-decoration: none; }
+		}
+	}
+
+	.desc {
+		display: inline;
+		margin: 0; padding-right: 0.5em;
+		@include x-rem(font-size, 16px);
+	}
+
+	p { margin: 0; }
+
+	.more {
+		display: inline-block;
+		padding-left: 0.7em;
+		border-left: 2px solid #fff;
+		@include x-rem(font-size, 14px);
+		@include x-rem(line-height, 16px);
+		text-decoration: none; text-transform: uppercase;
+
+		&:hover, &:focus { text-decoration: underline; }
+	}
+
+	&:before {
+		position: absolute; left: 0.6em; top: 0.3em;
+		@include x-rem(font-size, 32px);		
+	}
+
+	&.alert-Emergency {
+		background: $alert-emergency-bg;
+		color: $alert-emergency-color;
+
+		&:before {  }
+
+		//@include breakpoint(m) {
+		//	&:before { content: '';	}
+		//}
+
+		.title, a { color: $alert-emergency-color; }
+
+		.more { border-left-color: $alert-emergency-color; }
+	}
+
+	&.alert-information {
+        font-family: $font-secondary;
+        
+		background: $alert-info-bg; 
+		color: $alert-info-color; 
+		a { font-family: $font-secondary; color: $alert-info-color; }
+
+		.more { border-left-color: $alert-info-color; }
+	}
+}

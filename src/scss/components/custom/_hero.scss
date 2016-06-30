@@ -1,0 +1,80 @@
+.hero {
+    position:relative;
+    max-height:700px;
+    margin-bottom:2em;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    overflow: hidden;
+    
+    .hero-text {
+        padding:25px;
+        background:rgba(255,255,255,.45);
+        .title {
+            margin:0 0 5px;
+            font-family: $font-primary;
+            @include x-rem(font-size, 42px);
+        }
+        p {margin:0 0 10px; color:#fff;}
+        a {color:white;}
+    }
+    
+    .slider {
+        position:relative;
+        margin:0; padding:0;
+        list-style-type: none;
+        height:100%;
+        .slide-item {
+            display:block;
+            background-position:center center;
+            background-repeat:no-repeat;
+            background-size:cover;
+            text-align: center;
+            transition:all 0.3s ease-in-out;
+            &:before {}
+            .slide-text {
+                position:relative;
+                display:inline-block;
+                width:630px; max-width:100%;
+                margin:5% 0;
+                z-index: 10;
+                padding:25px 25px 4em 25px;
+                background:rgba(0,0,0,.45);
+                transition:all 0.3s ease-in-out;
+                .title {
+                    margin:0 0 5px;
+                    font-family: $font-primary;
+                    @include x-rem(font-size, 42px);
+                    color:#fff;
+                }
+                p {margin:0; color:#fff;}
+                a {color:white;}
+            }
+        }
+    }
+    
+    .search-control {
+        position:absolute;
+        top:59%; left:50%;
+        transform:translate(-50%, -59%);
+        input[type='text'] {
+            height:40px;
+            border:1px solid rgba(255,255,255,.2);
+            background:rgba(0,0,0,.6);
+            box-shadow: none;
+            color:white;
+        }
+        label {color:#b2bdc5;}
+    }
+    
+    @media(min-width:$bp-m) {
+        height:400px;
+        
+    }
+}
+
+.hero-heading {
+    margin-bottom:3em;
+    text-align:center;
+    .title {margin:0 0 5px;}
+}
