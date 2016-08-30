@@ -9,7 +9,7 @@ Talon - An Americaneagle.com Toolkit
 To install this package - first ensure you are running Node v6.3.0 on your machine. 
 
  1) Download the contents of the repository to your local machine
-
+ 
  2) Open up the folder from explorer and type 'cmd' to access the command prompt
  
  3) In the command prompt, type 'npm install' to get all necessary dependencies
