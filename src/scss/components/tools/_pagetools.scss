@@ -1,0 +1,61 @@
+/* ================================================================
+   Page Meta Area
+    - Page Tools Wrapper
+    - Page Tools/ Social Media
+   ================================================================ */
+
+
+
+.page-meta {
+	margin-bottom: 2em;
+	@extend .clearfix;	
+}
+
+  
+
+
+
+/* Page Tools (Print | Email | Share)
+   ================================================================ */
+
+.social-share { 
+	padding:0 20px;
+	text-align:right;
+
+	li { display:inline-block; 
+		a { display:block; 
+			svg { width:30px; height:30px }
+		}
+
+		&.share-facebook { 
+			svg { fill:#3b5998 } 
+		}
+		&.share-twitter { 
+			svg { fill:#00aced } 
+		}
+		&.share-linkedin { 
+			svg { fill:#007bb6; } 
+		}
+		&.share-reddit { 
+			svg { fill:#ff4500; } 
+		}
+		&.share-digg { 
+			svg {  } 
+		}
+		&.share-mail { 
+			svg {  } 
+		}
+		&.share-tumblr { 
+			svg { fill:#32506d } 
+		}
+		&.share-googleplus { 
+			svg { fill:#dd4b39; } 
+		}
+		&.share-stumbleupon { 
+			svg { fill:#eb4823; } 
+		}
+		&.share-bloggr { 
+			svg { fill:#fb8f3d; } 
+		}
+	}
+}

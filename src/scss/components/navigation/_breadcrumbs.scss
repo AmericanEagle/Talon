@@ -1,0 +1,23 @@
+/* Breadcrumbs
+   ================================================================ */
+
+.breadcrumb {  
+	list-style:none;
+    margin:0; padding:20px;
+    
+    li { 
+    	display:inline-block; 
+    	position:relative; 
+    	padding-right:15px; 
+    	font-size:.85em; 
+
+        &:after {
+            content:'>'; display:block;
+            position:absolute; right:2px; top:-1px;
+        }
+        
+        &:last-child {
+            &:after { display:none; }
+        }
+    }
+}

@@ -1,0 +1,90 @@
+/* ******************************************************
+   NAVIGATION
+        - Sitemap styles
+   ****************************************************** */
+
+$sitemap-indent: 20px !default;
+$sitemap-heading-bg: $color-primary !default;
+$sitemap-heading-bg-hover: darken($color-primary, 10%) !default;
+$sitemap-tree-line: mix($color-primary, $body-bg, 50%) !default;
+$sitemap-tree-dot: 8px !default;
+
+.sitemap-section-heading {
+	display:block;
+	padding:0.5em $sitemap-indent; margin-bottom:0.5em;
+	color:#fff;
+	text-decoration:none;
+	background:$sitemap-heading-bg;
+
+	&:hover, &:focus {
+		text-decoration:none;
+		background:$sitemap-heading-bg-hover;
+	}
+}
+
+.sitemap {
+
+	ul, li {
+		display:block;
+		margin:0; padding:0;
+	}
+
+	a {
+		position:relative;
+		display:block;
+		padding:4px 0;
+		font-weight:bold;
+		line-height:1.2em;
+	}
+
+	> ul > li {
+		display:inline-block; vertical-align:top;
+		margin-bottom:2em;
+		width:300px;
+
+		> a { @extend .sitemap-section-heading; }
+
+		ul { // Level 2
+			margin-left:$sitemap-indent;
+
+			ul { // Level 3+
+				margin-left:$sitemap-indent/2;
+
+				a { font-size:0.9em; }
+
+				ul { // Level 4
+					a { font-weight:normal; color:$color-base; }
+				}
+			}
+		}
+
+		> ul > li {
+			position:relative;
+
+			&:before { // line
+				content:'';
+				position:absolute; top:0; left:-$sitemap-indent/2; z-index:2; //above the content, but below the dot
+				height:100%; width:1px;
+				background: $sitemap-tree-line;
+			}
+
+			&:first-child:before {
+				top:1em;
+				height:100%;
+			}
+
+			&:last-child:before { height:$sitemap-tree-dot; }
+
+			&:first-child:last-child:before{ height:0; }
+
+			> a:after { // 2nd level dots
+				content:'';
+				position:absolute; top:1em; left:(-$sitemap-indent/2 - $sitemap-tree-dot/2); z-index:3; 
+				margin-top:-$sitemap-tree-dot/2 - 2px;
+				height:$sitemap-tree-dot; width:$sitemap-tree-dot;
+				border-radius:$sitemap-tree-dot;
+				background:$sitemap-tree-line;
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+/* ******************************************************
+   NAVIGATION
+        - ClickMenu
+        * SLIDING MENU NAVIGATION ADJUSTMENTS
+   ****************************************************** */
+
+[data-type="sliding"].opened .sub-menu,
+[data-type="sliding"].opened .sub-menu ul { max-width:100%; }
+
+.cm-menu [data-type="sliding"] {
+    &.opened .sub-menu > ul { max-height:80em; opacity:1; }
+    &.animated .sub-menu > ul { overflow:visible; z-index:10; }
+    &.animating .sub-menu { z-index:-1; }
+} 
+
+@media (min-width:$bp-m){
+
+    [data-type="sliding"] .sub-menu {
+        position:absolute;
+        transition: all $nav-transition-speed ease-in-out;
+     
+        > ul {
+            display:block;
+            position:absolute; top:100%; left:0; z-index:-1;
+            width:180px;
+            background:$nav-subLinkBackground;
+            transition: max-height $nav-transition-speed ease-in-out, 
+                        opacity $nav-transition-speed ease-in-out, 
+                        left $nav-transition-speed ease-in-out, 
+                        right $nav-transition-speed ease-in-out;
+                        
+            li { position:static; }
+
+            > li > ul { position:absolute; top:0; }
+
+            ul { position:absolute; top:0; }
+        }
+
+        ul ul ul { position:static; margin:0; padding:0; max-height:80em; width:100%; overflow:hidden; background:transparent; opacity:1; }
+
+        /* ================= ESSENTIAL SLIDING FUNCTIONALITY ================= */
+
+        &.cm-js-inactive {  
+            position:relative; left:0 !important; 
+            width:100% !important;
+
+            > ul { 
+                min-width:100%; 
+
+                > li > ul { padding:0; max-width:0; }
+            }
+        }
+
+        > ul ul { width:100%; margin-left:-5px; padding-left:180px; padding-right:5px; z-index:-1; opacity:0; }
+
+        .animated ul { opacity:1; }
+    }
+
+    [data-type="sliding"].opened .sub-menu, [data-type="sliding"].opened .sub-menu ul { max-width:none; }
+}

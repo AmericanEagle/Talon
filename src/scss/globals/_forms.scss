@@ -17,10 +17,10 @@ $input-box-shadow-active: inset 0 1px 5px hsla(0%, 0%, 0%, 0.22), inset 0 0 0 2p
 }
 
 .required-indicator {  
-	display:inline-block;
+	display:inline-block; 
 	position:relative;
-	width:8px; height:15px;
- 
+	width:8px; height:15px; 
+
 	&:before { 
 		display:block; content:'*';
 		position:absolute; left:0; top:0;
@@ -93,6 +93,14 @@ textarea {
 	padding: 10px 13px;
 	background: none;
 }
+
+
+.sf-FileField .sf-icon-remove {
+	display: inline-block;
+	cursor: pointer;
+}
+
+input[type=file].sf-FileField-input { display: inline-block; }
 
 
 /* ================================================================

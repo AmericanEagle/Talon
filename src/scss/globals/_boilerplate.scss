@@ -76,6 +76,11 @@ svg.icon {
 	transition:all 0.3s ease-in-out; 
 }
 
+.sf-Code {
+	pre {
+		color: #666;
+	}
+}
 
 
 
@@ -84,31 +89,26 @@ svg.icon {
    ================================================================ */
 
 
-h1, h2, h3 {  margin:0 0 $typography-margin-bottom / 2; }
-h1, h2, h3, h4, h5, h6 {font-family: $font-primary; font-weight:$fontWeight-lightest; color:#000;}
+h1, h2, h3 { 
+	margin:0 0 $typography-margin-bottom;
+	font-family:$font-heading;
+}
 
-h1 { @include x-rem(font-size, 46px);}
-h2 { @include x-rem(font-size, 42px);}
-h3 { @include x-rem(font-size, 30px);}
-h4 { @include x-rem(font-size, 24px);}
-h5 { @include x-rem(font-size, 20px);}
-h6 { @include x-rem(font-size, 16px);}
+h1 { @include x-rem(font-size, 37px); }
+h2 { @include x-rem(font-size, 20px); }
+h3 { @include x-rem(font-size, 18px); }
+h4 { font-family:$font-primary }
 
 a {
 	color:$color-primary;
 	text-decoration:none;
-    transition:all 0.3s ease-in-out;
+    
 	&:hover, &:focus { text-decoration:underline; }
 }
 // a[target="_blank"] { cursor:alias }
 
-p { margin:0 0 $typography-margin-bottom; @include x-rem(font-size, 15px); color:#6f6f6f;}
+p { margin:0 0 $typography-margin-bottom; }
 
-ul, ol {
-    @include x-rem(font-size, 15px);
-    line-height:24px;
-    color:#6f6f6f;
-}
 
 // Adds custom list styles to content
 .sfContentBlock {
@@ -124,8 +124,6 @@ blockquote {
 	margin:1em 1.5em; padding-left:1.5em;
 	border-left:5px solid hsl(0, 0%, 85%);
 }
-.color-primary {color:$color-primary !important;}
-.color-secondary {color:$color-secondary !important;}
 
 .smallest { font-size:0.8em; }
 .smaller { font-size:0.9em; }
@@ -136,40 +134,22 @@ blockquote {
 .italic { font-style:italic; }
 .strike { text-decoration:line-through; }
 
-.fontweight-semibold {font-weight:500;}
-.fontweight-light {font-weight:300;}
-.font-primary {font-family: $font-primary;}
-.font-secondary {font-family: $font-secondary;}
-
-.gray-blue {color:#bac6cb !important;}
-
 .nowrap { white-space:nowrap; }
 .important { color:red; font-weight:bold; text-transform:uppercase; }
 
-.title-margin {margin-bottom:$typography-margin-bottom / 2;}
-
 .button, .btn {
 	display:inline-block;
-    margin:0; padding: 15px 20px;
-    border:0; background:#103258;
-    font-family: $font-secondary;
-    @include x-rem(font-size, 15px);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color:#fff;
-    transition:all 0.3s ease-in-out;
-    &.tiny {@include x-rem(font-size, 10px); padding:6px 30px;}
-    &.small {@include x-rem(font-size, 12px);}
-    &:hover, &:focus {background:#124E84; text-decoration: none;}
-    
-    &.alternate {
-        padding:12px 20px;
-        border:2px solid #fff;
-        background:transparent;
-        font-weight:$fontWeight-semibold;
-        &:hover, &:focus {background:$color-secondary; color:#103259; border-color:transparent;}
-    }
+	padding:0.47em 1.2em;
+	border:0;
+	font-family:$font-primary; font-weight:$fontWeight-bold; color:$color-invert;
+	text-decoration:none; text-transform:uppercase; text-align:center;
+	background:$color-primary;
+	transition:all 0.2s ease-out;
+
+	&:hover, &:focus {
+		text-decoration:none;
+		background:#646464;
+	}
 }	
 
 .back {
@@ -188,185 +168,4 @@ blockquote {
 	&:after {
 		@extend .iconfont-chevron-right !optional;
 	}
-}
-
-a.back-to-top {
-    position:relative;
-    padding-left:20px;
-    @include x-rem(font-size, 13px);
-    color:#fff;
-    &:before {
-        content:'';
-        position:absolute; top:50%; left:0;
-        width:12px; height:12px;
-        background:$color-secondary;
-        border-radius:50%;
-        transform:translateY(-50%);
-    }
-    &:after {
-        content: '';
-        position: absolute;
-        top: 50%; left: 0;
-        width: .50em; height: .50em;
-        border-top: .2em solid $color-primary;
-        border-left: .2em solid $color-primary;
-        border-radius:5px;
-        font-family: $font-secondary;
-        transform: rotate(45deg) translateY(-50%);
-    }
-}
-
-.two-column-layout {
-    & > div {padding:0 $grid-gutter; margin-bottom:1em; transition:all 0.3s ease-in-out;}
-    @media(min-width:$bp-m) {
-        display:table; width:100%;
-        table-layout: fixed;
-        & > div {
-            display:table-cell;
-            vertical-align: top;
-            &.aside {width:25%;}
-            &.main {width:75%;}
-        }  
-    }
-}
-
-.three-column-layout {
-    & > div {padding:0 $grid-gutter ; margin-bottom:1em; transition:all 0.3s ease-in-out;}
-    @media(min-width:$bp-m) {
-        display:table; width:100%;
-        table-layout: fixed;
-        & > div {
-            display:table-cell;
-            vertical-align: top;
-            &.aside {width:25%;}
-            &.main {width:50%;}
-        }  
-    }
-}
-
-.social-connected {
-    margin-bottom:1.5em;
-    padding:20px;
-    border:1px solid #dddddd;
-    background:#efefef;
-    
-    ul {
-        margin:0; padding:0;
-        list-style-type: none;
-        
-        li {
-            display:inline-block;
-            vertical-align: middle;
-            margin-right:5px;
-            &:last-child {margin-right:0;}
-            a {
-                display:block;
-                text-decoration: none;
-            }
-            &.facebook a:hover svg,
-            &.facebook a:focus svg {fill:#3b5998}
-            
-            &.twitter a:hover svg,
-            &.twitter a:focus svg { fill:#00aced }
-            
-            &.linkedin a:hover svg,
-            &.linkedin a:focus svg { fill:#007bb6; }
-            
-            &.google a:hover svg,
-            &.google a:focus svg { fill:#dd4b39; }
-            
-            &.youtube a:hover svg,
-            &.youtube a:focus svg { fill:#E62117; }
-        }
-        
-    }
-}
-
-.signup {
-    margin-bottom:1em; padding:20px;
-    background:#124d83;
-    color:#fff;
-    p {color:#fff;}
-    .controls {
-        position:relative;
-        margin-bottom:.5em;
-        background:#7A9BBA;
-        color:#fff;
-        input[type="text"] {
-            height:35px; width:100%;
-            padding:0 85px 0 10px;
-            border:0;
-            background:#7a9bb9;
-            box-shadow: none;
-            @include x-rem(font-size, 14px);
-            color:#fff;
-            &:-moz-placeholder,
-            &::-moz-placeholder,
-            &:-ms-input-placeholder,
-            &::-webkit-input-placeholder {color:#fff; font-style: italic;}
-        }
-        .btn {
-            position:absolute;
-            top:0; right:0;
-            z-index: 10;
-            height:100%;
-            padding:0 12px;
-            border:2px solid #fff;
-            background:#124d83;
-            @include x-rem(font-size, 12px);
-            &:hover, &:focus {background:#7a9bb9;}
-        }
-    }
-}
-
-.like-us {
-    position:relative;
-    display:inline-block;
-    padding-right:10px;
-    @include x-rem(font-size, 14px);
-    text-decoration: none;
-    color:#fff;
-    svg {fill:#fff; vertical-align: text-bottom;}
-    &:after {
-        content: '';
-        position: absolute;
-        top: 60%;
-        right: 0;
-        width: .5em;
-        height: .5em;
-        border-right: .15em solid #fff;
-        border-top: .15em solid #fff;
-        transform: rotate(45deg) translateY(-50%);
-        transition:all 0.3s ease-in-out;
-    }
-    &:hover, &:focus {
-        text-decoration: none;
-        &:after {right:-5px;}
-    }
-}
-
-.hinted-input {
-    position:relative;
-    overflow: hidden;
-    input {
-        ~ .hint {
-            position: absolute;
-            top: 50%; left: 10px;
-            margin: 0;
-            opacity: 1;
-            font-size: 16px;
-            font-weight: 300;
-            white-space: nowrap;
-            color: #3f3f3f;
-            transform:translateY(-50%);
-            transition: all 0.3s ease-in-out; 
-            cursor: text;
-        }
-        &:focus ~ .hint,
-        &[required]:valid ~ .hint,
-        &.valid ~ .hint,
-        &.hint ~ .hint,
-        &:-webkit-autofill ~ .hint {opacity:0; top:0;}
-    }
-    input.hint ~ .hint {opacity:0; top:0;}
 }

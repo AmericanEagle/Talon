@@ -2,8 +2,8 @@
    Alerts
    ================================================================ */
 
-$alert-info-bg: #fdb913;
-$alert-info-color: #000;
+$alert-info-bg: #ffd401;
+$alert-info-color: #666f80;
 $alert-emergency-bg: #cc0001;
 $alert-emergency-color: #fff;
 
@@ -22,7 +22,8 @@ $alert-emergency-color: #fff;
 
 .alert {
 	position: relative;
-	padding: 12px $grid-gutter;
+	padding: $grid-gutter $grid-gutter;
+
 	//@include breakpoint(m) { padding: $grid-gutter $grid-gutter * 4; }
 
 	.title {
@@ -34,9 +35,9 @@ $alert-emergency-color: #fff;
 		&:after { content: ':'; }
 
 		a {
-            color:$alert-info-color;
-			text-decoration: underline;
-			&:hover, &:focus { text-decoration: none; }
+			text-decoration: none;
+
+			&:hover, &:focus { text-decoration: underline; }
 		}
 	}
 
@@ -68,7 +69,9 @@ $alert-emergency-color: #fff;
 		background: $alert-emergency-bg;
 		color: $alert-emergency-color;
 
-		&:before {  }
+		&:before { 
+			//@extend .icons-warning; 
+		}
 
 		//@include breakpoint(m) {
 		//	&:before { content: '';	}
@@ -79,12 +82,11 @@ $alert-emergency-color: #fff;
 		.more { border-left-color: $alert-emergency-color; }
 	}
 
-	&.alert-information {
-        font-family: $font-secondary;
-        
+	&.alert-Information {
 		background: $alert-info-bg; 
 		color: $alert-info-color; 
-		a { font-family: $font-secondary; color: $alert-info-color; }
+
+		a { color: $alert-info-color; }
 
 		.more { border-left-color: $alert-info-color; }
 	}

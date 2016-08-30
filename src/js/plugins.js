@@ -5,22 +5,21 @@
         - Libraries needed only in a single or few instance(s) can be called separately in the widget templates
         
         * INCLUDED IN THIS FILE:
-            - ClickNav.js - v0.9.2 - Find Nick Goodrum
+            - ClickNav.js - v0.9.2 - http://nickgoodrum-templates.idevdesign.net/templates/nav/
             - Magnific Popup - v1.0.0 - http://dimsemenov.com/plugins/magnific-popup/
             - Slick Carousel - v1.6.0 - http://kenwheeler.github.io/slick/
    ****************************************************** */
 
 
-  
  
 
 /*! CLICK NAVIGATION FUNCTIONALITY
-* Version: 0.9.2
+* Version: 0.9.4
 * Author: Nick Goodrum
 * Licensed under MIT:
 * http://www.opensource.org/licenses/mit-license.php
 * Followed WAI-ARIA spec except for typing a letter key keyboard functionality
-* TO DO - CALLBACKS, DATA-ATTRIBUTES, BETTER CLEAROUT */
+* TO DO - DATA-ATTRIBUTES, BETTER CLEAROUT, EXTEND MEGA / SLIDING */
 
 (function($){
     'use strict';
@@ -84,6 +83,7 @@
             _.isActive = false;
             _.lastEventType;
             _.isToggled = false;
+            _.leavingMenu = false;
             _.currentFocus = 0;
             _.initialLinks = [];
             _.currentLinks = [];
@@ -213,91 +213,105 @@
             }
 
         });
-        
+
         _.currentLinks = _.initialLinks;
         _.currentLinks[_.currentFocus].attr("tabindex", "0");
+
+        _.$menu.trigger("init", [_]);
 
     };
 
     ClickMenu.prototype.keyHandler = function(e) {
-        var _ = this;
+        var _ = this,
+            keyPress = e.keyCode;
 
-        if ( ! _.$menu.hasClass("cm-js-inFocus") ) {
+        if ( ! _.$menu.hasClass("cm-js-inFocus") && keyPress !== 9 ) {
             _.$menu.addClass("cm-js-inFocus").attr("tabindex", "-1");
         }
-        //LEFT UP RIGHT DOWN
-        if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40) {
-            //Prevent Scrolling aspects from browser
-            e.preventDefault();
+        switch (keyPress) {
+            //TAB
+            case 9:
+                _.$menu.removeClass("cm-js-inFocus");
+                break;
+            //LEFT UP RIGHT DOWN
+            case 37:
+            case 38:
+            case 39:
+            case 40:
+                //Prevent Scrolling aspects from browser
+                e.preventDefault();
 
-            //Maintain currentLink since it will potentially be overwritten wtih the next focus
-            var oldLink = _.currentLinks[_.currentFocus];
+                //Maintain currentLink since it will potentially be overwritten wtih the next focus
+                var oldLink = _.currentLinks[_.currentFocus];
 
-            //Don't do anything if in mid transition
-            if (oldLink) {
-                var inMainTier = oldLink.closest("[role]:not(a)").attr("data-type"),
-                    inSecondTier = oldLink.closest("[role=menu]:not(a)").closest("[role=presentation]").attr("data-type"),
-                    next, direction, close, open;
+                //Don't do anything if in mid transition
+                if (oldLink) {
+                    var inMainTier = oldLink.closest("[role]:not(a)").attr("data-type"),
+                        inSecondTier = oldLink.closest("[role=menu]:not(a)").closest("[role=presentation]").attr("data-type"),
+                        next, direction, close, open;
 
-                //IF LEFT / UP  (Depending on TIER) change next item to rotate to
+                    //IF LEFT / UP  (Depending on TIER) change next item to rotate to
 
-                if (inMainTier) {
-                    // IF LEFT / RIGHT rotate to new item
-                    if (e.keyCode === 37) {
-                        direction = "prev";
-                    } else if (e.keyCode === 39) {
-                        direction = "next";
-                    } else if (e.keyCode === 40 || e.keyCode === 38) {
-                        open = true;
-                    }
-                } else {
-                    // IF UP / DOWN rotate to new item - IF LEFT on sub subs close menu
-                    if (e.keyCode === 38) {
-                        direction = "prev";
-                    } else if (e.keyCode === 40) {
-                        direction = "next";
-                    } else if ( e.keyCode === 39) {
-                        open = true;
-                    } else if ( ! inSecondTier && e.keyCode === 37 ) {
-                        close = true;
-                    }
-                }
-
-                if (direction) {
-
-                    if (direction === "prev") {
-                        //If there aren't any prior items move to last item in the list
-                        _.currentFocus = _.currentFocus - 1 >= 0 ? _.currentFocus - 1 : _.currentLinks.length - 1;
+                    if (inMainTier) {
+                        // IF LEFT / RIGHT rotate to new item
+                        if (keyPress === 37) {
+                            direction = "prev";
+                        } else if (keyPress === 39) {
+                            direction = "next";
+                        } else if (keyPress === 40 || keyPress === 38) {
+                            open = true;
+                        }
                     } else {
-                        //If there aren't any more items move to first item in the list
-                        _.currentFocus = _.currentFocus + 1 < _.currentLinks.length ? _.currentFocus + 1 : 0;
+                        // IF UP / DOWN rotate to new item - IF LEFT on sub subs close menu
+                        if (keyPress === 38) {
+                            direction = "prev";
+                        } else if (keyPress === 40) {
+                            direction = "next";
+                        } else if ( keyPress === 39) {
+                            open = true;
+                        } else if ( ! inSecondTier && keyPress === 37 ) {
+                            close = true;
+                        }
                     }
-                    next = _.currentLinks[_.currentFocus];
 
-                }
+                    if (direction) {
 
-                //If there isn't anything next click the anchor
-                if (next) {
-                    oldLink.attr("tabindex", "-1");
-                    _.currentLinks[_.currentFocus].attr("tabindex", "0").focus();
-                } else if (close) {
-                    //Same as ESCAPE
-                    _.$menu.find(".opened").last().find("[aria-haspopup]").first().trigger("click");
-                } else if (open) {
-                    //Only open if it isn't opened - escape is how to close a menu
-                    if ( ! oldLink.closest("li").hasClass("clicked") ) {
-                        _.currentLinks[_.currentFocus].trigger("click");
+                        if (direction === "prev") {
+                            //If there aren't any prior items move to last item in the list
+                            _.currentFocus = _.currentFocus - 1 >= 0 ? _.currentFocus - 1 : _.currentLinks.length - 1;
+                        } else {
+                            //If there aren't any more items move to first item in the list
+                            _.currentFocus = _.currentFocus + 1 < _.currentLinks.length ? _.currentFocus + 1 : 0;
+                        }
+                        next = _.currentLinks[_.currentFocus];
+
+                    }
+
+                    //If there isn't anything next click the anchor
+                    if (next) {
+                        oldLink.attr("tabindex", "-1");
+                        _.currentLinks[_.currentFocus].attr("tabindex", "0").focus();
+                    } else if (close) {
+                        //Same as ESCAPE
+                        _.$menu.find(".opened").last().find("[aria-haspopup]").first().trigger("click");
+                    } else if (open) {
+                        //Only open if it isn't opened - escape is how to close a menu
+                        if ( ! oldLink.closest("li").hasClass("clicked") ) {
+                            _.currentLinks[_.currentFocus].trigger("click");
+                        }
                     }
                 }
-            }
-        //ESCAPE
-        } else if (e.keyCode === 27) {
-            e.preventDefault();
-            _.$menu.find(".opened").last().find("[aria-haspopup]").first().trigger("click");
-        //SPACE BAR
-        } else if (e.keyCode === 32) {
-            e.preventDefault();
-            _.currentLinks[_.currentFocus].trigger("click");
+                break;
+            //ESCAPE
+            case 27:
+                e.preventDefault();
+                _.$menu.find(".opened").last().find("[aria-haspopup]").first().trigger("click");
+                break;
+            //SPACE BAR
+            case 32:
+                e.preventDefault();
+                _.currentLinks[_.currentFocus].trigger("click");
+                break;
         }
     };
 
@@ -324,6 +338,8 @@
     ClickMenu.prototype.showMenu = function() {
         var _ = this;
 
+        _.$menu.trigger("beforeMenuShow", [_]);
+
         _.isActive = true;
         _.isToggled = true;
         _.$menu.addClass("cm-js-active");
@@ -339,10 +355,15 @@
         setTimeout(function(){
             $("html").addClass(_.options.htmlClass).on("touchstart click focusin", _.menuToggleHandler);
         }, _.options.animationSpeed);
+
+        _.$menu.trigger("afterMenuShow", [_]);
+
     };
 
     ClickMenu.prototype.hideMenu = function() {
         var _ = this;
+
+        _.$menu.trigger("beforeMenuHide", [_]);
 
         _.isActive = false;
         _.isToggled = false;
@@ -354,6 +375,8 @@
         setTimeout(function(){
             $("html").removeClass("cm-animate-out");
         }, _.options.animationSpeed);
+
+        _.$menu.trigger("afterMenuHide", [_]);
     };
 
     ClickMenu.prototype.menuToggle = function(e) {
@@ -376,9 +399,11 @@
             $parentLi = $currAnchor.closest("li"),
             $menuCol = $currAnchor.closest("[data-type]"),
             menuType = $menuCol.data("type"),
-            relatedMenu = $("[aria-labelledby=" + $currAnchor.attr("id") + "]");
+            $relatedMenu = $("[aria-labelledby=" + $currAnchor.attr("id") + "]");
 
         if ($parentLi.hasClass("opened")) {
+
+            _.$menu.trigger("beforeSubClose", [_, $currAnchor, $relatedMenu]);
 
             $("html").off("touchstart click focusin", _.menuHandler);
 
@@ -395,7 +420,7 @@
                     $("html").on("touchstart click focusin", _.menuHandler);
                 }
 
-                relatedMenu.attr({ "aria-expanded" : "false", "aria-hidden" : "true" });
+                $relatedMenu.attr({ "aria-expanded" : "false", "aria-hidden" : "true" });
 
                 $.each(_.currentLinks, function() {
                     var $anchor = this;
@@ -427,7 +452,12 @@
                         _.currentFocus = $parentLi.index();
                     }
 
-                    $currAnchor.attr("tabindex", "0").focus();
+                    if ( !_.leavingMenu ) {
+                        $currAnchor.attr("tabindex", "0").focus();
+                    }
+
+                    _.$menu.trigger("afterSubClose", [_, $currAnchor, $relatedMenu]);
+
                 }, _.options.animationSpeed);
 
             }
@@ -435,6 +465,8 @@
             // Otherwise Open submenu and attach site click handler
             // Also - close any other open menus and their children
             e.preventDefault();
+
+            _.$menu.trigger("beforeSubOpen", [_, $currAnchor, $relatedMenu]);
 
             $parentLi.addClass("opened animating").siblings().removeClass("opened animating animated")
                      .find(".opened").removeClass("opened animating animated");
@@ -445,7 +477,7 @@
                 $parentLi.parents(".sub-menu").removeClass("cm-js-inactive");
             }
 
-            relatedMenu.attr({ "aria-expanded" : "true", "aria-hidden" : "false" });
+            $relatedMenu.attr({ "aria-expanded" : "true", "aria-hidden" : "false" });
 
             $.each(_.currentLinks, function() {
                 var $anchor = this;
@@ -475,6 +507,8 @@
                 // ADD TOGGLE HANDLER AFTER ANIMATION TO PREVENT CLOSING MENUS FROM REMOVING THE HANDLER
                 $("html").on("touchstart click focusin", _.menuHandler);
 
+                _.$menu.trigger("afterSubOpen", [_, $currAnchor, $relatedMenu]);
+
             }, _.options.animationSpeed);
         }
     };
@@ -486,7 +520,6 @@
             _.isToggled = false;
             _.$menuToggle.trigger("click");
 
-            $("body").prepend("<p>" + clicked + "</p>");
             $("html").removeClass(_.options.htmlClass).off("touchstart click focusin", _.menuToggleHandler);
         }
     };
@@ -495,10 +528,10 @@
         var _ = this;
 
         if ( ! $.contains(_.menu, e.target) && ! _.$menu.is($(e.target)) ) {
-            _.$menu.find(".opened").removeClass("opened animated animating");
-            _.$menu.find("[role=menu]").attr({ "aria-expanded" : "false", "aria-hidden" : "false" });
-            _.$menu.find(".sub-menu").addClass("cm-js-inactive");
-            _.$menu.find("li a[tabindex=0]").attr("tabindex", "-1");
+            //Make sure not to leave any tabindex=0 on submenu links by making sure the toggle knows we are leaving the menu
+            _.leavingMenu = true;
+
+            _.$menu.find(".opened > .has-sub").trigger("click");
 
             _.currentLinks = _.initialLinks;
             _.currentFocus = 0;
@@ -507,6 +540,11 @@
             _.currentLinks[_.currentFocus].attr("tabindex", "0");
 
             $("html").off("touchstart click focusin", _.menuHandler);
+
+            setTimeout(function(){
+                //We now know we have left the menu and are done triggering sub menus
+                _.leavingMenu = false;
+            }, _.options.animationSpeed);
         }
     };
 

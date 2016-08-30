@@ -1,0 +1,100 @@
+/* ******************************************************
+   Main Import File
+        - Base Imports (Varialbes/Utilities/Base styles)
+        - Components (Navigation/Tools/Modules)
+        - Vendor Imports (Third party plugins)
+        - Misc. Imports (Print/admin/styleguide)
+   ****************************************************** */
+
+
+
+
+
+/* ================================================================
+   Base Imports
+   ================================================================ */
+
+// Variables
+@import "variables";
+ 
+// SASS Functions and Modules 
+@import "utilities";
+  
+// Normalize   
+@import "globals/normalize";
+    
+// Base Styles  
+@import "globals/boilerplate";  
+@import "globals/grid"; 
+
+// Specific Styles
+@import "globals/primarylayout"; 
+@import "globals/forms";
+
+// Special 
+@import "globals/animations";
+ 
+   
+   
+ 
+  
+/* ================================================================
+   Component Imports - Comment/uncomment what you don't need/need.
+   ================================================================ */
+
+// Component Globals
+@import "components/components";
+
+// Navigation
+@import "components/navigation/clickMenu";
+//@import "components/navigation/clickMenu-mega";
+//@import "components/navigation/clickMenu-sliding";
+//@import "components/navigation/clickMenu-theme";
+@import "components/navigation/footerNav";
+@import "components/navigation/sectionNav";
+@import "components/navigation/siteMap";
+@import "components/navigation/breadcrumbs";
+
+// Tools
+@import "components/tools/tabs";
+@import "components/tools/pager";
+@import "components/tools/pagetools";
+@import "components/tools/commentsandrating";
+@import "components/tools/search";
+
+// Modules
+@import "components/modules/faq";
+@import "components/modules/events"; 
+@import "components/modules/news";
+@import "components/modules/photogallery";
+@import "components/modules/alerts";  
+@import "components/modules/lists";  
+@import "components/modules/profile";
+@import "components/modules/media";  
+@import "components/modules/documents";
+
+
+
+ 
+
+/* ================================================================
+   Vendor Imports
+   ================================================================ */
+
+@import "vendor/magnific";
+@import "vendor/slick";
+@import "vendor/slick-theme";
+
+  
+
+
+
+/* ================================================================
+   Misc. Imports
+   ================================================================ */
+
+// Print  
+@import "globals/print";
+
+// Admin styles, resets and fixes
+@import "globals/styleguide"; 

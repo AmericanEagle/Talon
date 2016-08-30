@@ -3,7 +3,7 @@
    ================================================================ */
 
 .container {
-  width:100%; max-width:73.125em;
+  width:100%; max-width:72em;
   margin-right: auto; margin-left: auto;
   padding-left: $grid-gutter-em; padding-right: $grid-gutter-em;
 }
@@ -14,7 +14,7 @@
 @media (min-width: $bp-m) {
   .container { width: $bp-m - $grid-gutter-em; }
 }
- 
+
 @media (min-width: $bp-mw) {
   .container { width: $bp-mw - $grid-gutter-em; }
 }
@@ -23,7 +23,7 @@
   .container { width: $bp-l - $grid-gutter-em; }
 }
 */
- 
+
 .container-fluid {
   margin-right: auto; margin-left: auto;
   padding-left: $grid-gutter-em; padding-right: $grid-gutter-em;

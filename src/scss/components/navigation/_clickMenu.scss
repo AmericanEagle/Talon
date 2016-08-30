@@ -1,0 +1,261 @@
+/* ******************************************************
+   NAVIGATION
+        - CLICK MENU STYLES
+   ****************************************************** */
+
+
+.cm-menu {
+    position:relative;
+    margin:0; padding:0; 
+    list-style:none; 
+    background:$nav-barBackground;
+
+    a, a:visited { color:$color-invert; text-decoration:none; }
+    *, *:after, *:before { box-sizing: border-box; }
+
+    &:focus { outline:3px solid blue; }
+
+    ul {
+        margin:0; padding:0; 
+        max-height:0;
+        list-style:none; 
+        background:$nav-mainLinkBackground;   
+        opacity:0;
+        overflow:hidden;
+        transition: max-height $nav-transition-speed ease-in-out, 
+                    opacity $nav-transition-speed ease-in-out;
+    }
+
+    li { 
+        position:relative;
+        border-top:1px solid $nav-subLinkBackground;
+
+        &:first-child { border-top:0; }
+
+        a {
+            display:block;  
+            position:relative;
+            padding:10px; 
+            background:$nav-subLinkBackground;
+        }
+    }
+
+    .has-sub:after, 
+    .expander-wrap .has-sub > span:after {
+        content:" ";
+        display:inline-block;
+        position:absolute; top:50%; right:10px;
+        margin:2px 0 0 5px;
+        vertical-align:middle;
+        border:5px solid transparent;
+        /* Extra is for anti-aliasing issues in firefox and others */
+        border:5px solid rgba(0,0,0,0); border-top-color:#fff;
+        transition: all $nav-transition-speed ease-in-out;
+        transform: scale(0.98) translateY(-50%);
+    }
+
+    .opened > .has-sub:after,
+    .opened > .expander-wrap .has-sub > span:after {
+        border-top-color:$nav-subLinkBackground;
+        transform: scale(0.98) translateY(-75%) rotate(-180deg);
+    }
+
+    > .opened > a,
+    > li > a:hover, > li > a:focus,
+    > li > div > a:hover, > li > div > a:focus { color:#333; background:#d4d4d4; }
+
+    .expander-wrap .has-sub:hover > span,
+    .expander-wrap .has-sub:focus > span { color:#333; background:#d4d4d4; }
+
+    ul .opened > a,
+    ul a:hover, ul li a:focus { background:#444; }
+
+    ul .opened > .has-sub:after,
+    ul .opened > .expander-wrap .has-sub > span:after { border-top-color:#fff; }
+
+    .opened > ul { max-height:80em; opacity:1; } 
+}
+
+.toggle-menu + .cm-menu {
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition: max-height $nav-transition-speed ease-in-out, opacity $nav-transition-speed ease-in-out;
+}
+
+.cm-js-active { 
+    .cm-menu { max-height:80em; opacity:1; }
+}
+
+
+/* ================= SEPARATE EXPANDERS OPTION IS ENABLED ================= */
+
+.cm-menu .expander-wrap {
+    display:table; 
+    width:100%; 
+
+    a { display:table-cell; }
+
+    .has-sub {
+        position:relative; width:30px;
+
+        &:after { display:none; }
+
+        > span {
+            display:block;
+            position:absolute; top:0; right:0;
+            width:100%; height:100%;
+            background:#aaa;
+
+            &:after {
+                content:" ";
+                display:inline-block;
+                position:absolute; top:50%; right:50%;
+                margin:2px 0 0 5px;
+                vertical-align:middle;
+                border:5px solid transparent;
+                /* Extra is for anti-aliasing issues in firefox and others */
+                border:5px solid rgba(0,0,0,0); border-top-color:#fff;
+                transition: all $nav-transition-speed ease-in-out;
+                transform: scale(0.98) translate(50%, -50%);
+            }
+        }
+    }
+}
+
+.cm-menu .opened > .expander-wrap .has-sub > span:after {
+    border-top-color:$nav-subLinkBackground;
+    transform: scale(0.98) translate(50%, -75%) rotate(-180deg);
+}
+
+/* ================= MENU OPEN FUNCTIONALITY ADDED ON SETUP ================= */
+
+@media (min-width:$bp-m){
+    .toggle-menu + .cm-menu { max-height:80em; opacity:1; overflow:visible; }
+
+    .cm-menu {
+        ul { top:100%; overflow:hidden; }
+        .opened > ul { max-height:80em; opacity:1; }
+        .animated > ul { overflow:visible; z-index:10; }
+        .animating > ul { z-index:-1; }
+    }
+}
+
+
+/*================================================================
+                 CLICK MENU MENU TYPES
+================================================================*/
+
+/*  NAV BAR STYLE TYPE
+    ================================================================*/
+
+@media (min-width:$bp-m) {
+    .nav-bar {
+        li { border-top:0; }
+
+        > ul {
+            display:table; width:100%; table-layout:fixed;
+
+            > li {
+                display:table-cell; vertical-align:middle;
+
+                > a {
+                    display:table; width:100%; padding:0;
+
+                    > span {
+                        display:table-cell; padding:0 10px; height:40px; vertical-align:middle; text-align:center;
+                    }
+                }
+
+                > ul { position:absolute; }
+            } 
+        }
+
+        .has-sub span:after { position:static; margin-top:10px; }
+
+        ul {
+            ul .has-sub:after { right:5px; }
+            li li { margin:5px; }
+            li li li { margin-left:0; margin-right:0; }
+            ul a { padding:3px 15px; background:#999; }
+            ul a:hover, .nav-bar ul ul a:focus,
+            ul .opened > a { color:#000; background:#ddd; }
+        }
+    }
+
+}
+
+
+
+/*  ACCORDION NAVIGATION
+    ================================================================*/
+
+/* ------------- CURRENTLY KEEPS SMALL SCREEN STYLES -------------- */
+
+
+
+
+/*  DROP DOWN NAVIGATION
+    ================================================================*/
+
+@media (min-width:$bp-m){
+    [data-type="dropdown"] {
+        ul {
+            display:block;
+            position:absolute; top:100%; left:0; z-index:-1;
+            width:100%; min-width:180px;
+            background:$nav-subLinkBackground;  
+            transition: max-height $nav-transition-speed ease-in-out, 
+                        opacity $nav-transition-speed ease-in-out, 
+                        left $nav-transition-speed ease-in-out, 
+                        right $nav-transition-speed ease-in-out;
+
+            ul { top:-5px; }
+        }
+
+        .opened > ul { left:100%; max-height:80em; opacity:1; }
+    }
+
+    li[data-type="dropdown"]:nth-last-child(-n+2) {
+        ul { left:auto; right:0; }
+
+        .opened > ul { left:auto; right:100%; }
+    }
+
+    .nav-bar ul li[data-type="dropdown"] li li { margin-left:5px; margin-right:5px; }
+
+    [data-type="dropdown"] a + .has-sub { 
+        width:0; min-height:0; height:100%;
+        
+        > span { min-height:0; height:100%; }
+    }
+}
+
+
+
+/*================================================================
+                 NAVIGATION TOGGLE STYLES
+================================================================*/
+ 
+.toggle-menu {
+    display:block;
+    position:relative;  
+    width:50px; height:46px; 
+    background:$nav-subLinkBackground;
+
+    &:before, &:after, > span:before {
+        content:" ";
+        position:absolute; left:15%;
+        width:70%; height:3px; 
+        border-radius:2px;
+        background:#fff;
+    } 
+    &:before { top:11px; }
+    &:after { top:21px; }
+    
+    > span:before { top:31px; }
+}
+
+@media (min-width:$bp-m) {
+    .toggle-menu { display:none; }
+}

@@ -1,0 +1,24 @@
+/* ******************************************************
+   NAVIGATION
+        - Footer Navigation
+   ****************************************************** */
+
+
+@media (min-width:$bp-m){
+    .footer-nav {
+        .menu { 
+            display:table; 
+            list-style:none;
+            width:100%; 
+            
+            > li { display:table-cell; 
+                ul {
+                    list-style:none; 
+                    margin:0; padding:0;
+                }
+            }
+        }
+    }
+}
+
+

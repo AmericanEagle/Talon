@@ -120,21 +120,3 @@
 		border-top: 1px solid rgba($color-primary, 0.2);
 	}
 }
-
-
-
-
-/* Include individual components
-   ========================================================================== */
-
-
-// Import standard module styles - Comment out/remove what you don't need.
-@import "standard/tabs";
-@import "standard/faq";
-@import "standard/pager";
-@import "standard/pagetools";
-@import "standard/commentsandrating";
-//@import "standard/search";
-//@import "standard/events"; 
-@import "standard/news";
-@import "standard/photogallery";

@@ -36,7 +36,7 @@ Standard Sitefinity pager. Builds off of the format:
 	}
 
 	.next {
-		&:before{
+		&:before {
 			// content: 'Next';
 		  	display: inline-block; content: '';
 			position: relative; top: -2px;

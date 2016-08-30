@@ -1,0 +1,50 @@
+/* ******************************************************
+   NAVIGATION
+        - ClickMenu
+        * MEGA MENU NAVIGATION ADJUSTMENTS
+   ****************************************************** */
+
+@media (min-width:$bp-m){
+
+    .cm-menu [data-type="mega"] { position:static; }
+
+    [data-type="mega"] {
+        > ul { 
+            position:absolute; top:100%; left:0;
+            width:100%; max-height:0;
+            background:$nav-subLinkBackground;
+            overflow:hidden;
+            transition: all $nav-transition-speed ease-in-out;
+         
+            ul { position:static; max-height:80em; width:100%; overflow:hidden; background:transparent; opacity:1; }
+
+            .opened ul { margin-left:0; }
+
+            > li { float:left; width:25%; 
+                &:nth-child(4n+1) { clear:left; }
+            }
+
+            > .link-landing { 
+                margin:0; width:100%;
+
+                ~ li:nth-child(4n+1) { clear:none; }
+                ~ li:nth-child(4n+2) { clear:left; }
+            }
+        }
+    
+        /* ================= OPENED FUNCTIONALITY ADDED ON SETUP ================= */
+    
+        a + .has-sub { 
+            width:0; min-height:0; height:100%;
+
+            > span { min-height:0; height:100%; } 
+        }
+        
+        ul .has-sub:after { display:none; }
+        &.opened > ul { padding:20px; }
+    
+        /* ================= SEPARATE EXPANDERS OPTION IS ENABLED ================= */
+    
+        ul a + .has-sub { display:none; }
+    }
+}

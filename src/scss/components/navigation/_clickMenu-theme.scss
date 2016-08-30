@@ -1,0 +1,54 @@
+/* ******************************************************
+   NAVIGATION
+        - ClickMenu
+        * EXTRA OVERWRITE STYLES
+   ****************************************************** */
+
+.main-nav { position:relative; z-index:1000; }
+
+[data-type="sliding"] .sub-menu .item-banner { 
+    width:100%; 
+
+    a { text-align:center; background:none; }
+}
+
+[data-type="mega"] .custom-sub {
+    max-height:0; opacity:0;
+    overflow:hidden; 
+    transition: all $nav-transition-speed ease-in-out;
+
+    ul { position:static; opacity:1; max-height:80em; }
+    p { margin:10px; color:#fff; }
+}
+
+[data-type="mega"] .custom-sub .banner-wrap { 
+    width:100%; 
+
+    a { text-align:center; background:none; }
+}
+
+.cm-menu { 
+    .opened > .custom-sub { max-height:80em; opacity:1; padding:20px; }
+    .animated > .custom-sub { overflow:visible; z-index:10; }
+    .animating > .custom-sub { z-index:-1; }
+}
+
+@media (min-width:$bp-m) {
+    [data-type="mega"] .custom-sub {
+        position:absolute;
+        top:100%; left:0;
+        width:100%;
+        background:$nav-subLinkBackground;
+    } 
+}
+
+@media (min-width:$bp-m) {
+    .table-row { display:table; width:100%; }
+    .table-col { display:table-cell; vertical-align:top; }
+}
+
+.section-nav .opened {
+    > ul { border-bottom:1px solid #d4d4d4; max-height:80em; opacity:1; }
+    > a, > .expander-wrap a { border-bottom:1px solid #aaa; color:#333; background:#d4d4d4; }
+    .opened > .expander-wrap > a { background:#c4c4c4; }
+}
