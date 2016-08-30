@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<title> Style Guide </title>
+		
+		<!-- Mobile-friendly viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!-- Style sheet link -->
+        <link href="../../css/main.min.css" rel="stylesheet" media="all">
+
+        <!-- 
+        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700,500' rel='stylesheet' type='text/css'>
+        -->
+
+        <script type="text/javascript">
+            (function() {
+                "use strict";
+                var el = document.getElementsByTagName('html')[0],
+                    nojsClass = "no-js",
+                    jsClass = "js"; 
+
+                if (el.classList) {
+                    el.classList.remove(nojsClass);
+                    el.classList.add(jsClass);
+                } else {
+                    el.className = el.className.replace(new RegExp('(^|\\b)' + nojsClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    el.className += ' ' + jsClass;
+                } 
+            }());
+        </script>
+	</head>
+	
+	<body>
+        <div class="svg-legend" aria-hidden="true">
+            
+            <!-- Your SVG's Here -->
+        </div>
+		<header id="site-header" class="header" role="banner"> 
+			<div class="header-inner">
+                <div class="container">
+                    <div class="header-top row">
+                        <div class="col-lg-4">
+                            <a href="pages/home.html" class="brand"><img src="../images/logo.jpg" alt="AE" /></a> 
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="site-search">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- navigation.nunjucks -->
+<nav class="main-nav nav-bar" role="navigation">
+    <a href="#" class="toggle-menu">
+        <span><span class="visuallyhidden">Toggle Menu</span></span>
+    </a>
+    <ul class="cm-menu">
+        <li>
+            <a href="#"><span>Link 1</span></a>
+            <ul>
+                <li><a href="#"><span>Sub Link 1</span></a>
+                <li><a href="#"><span>Sub Link 2</span></a>
+                <li><a href="#"><span>Sub Link 3</span></a>
+                <li><a href="#"><span>Sub Link 4</span></a>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><span>Link 2</span></a>
+        </li>
+        <li>
+            <a href="#"><span>Link 3</span></a>
+            <ul>
+                <li><a href="#"><span>Sub Link 1</span></a>
+                <li><a href="#"><span>Sub Link 2</span></a>
+                <li><a href="#"><span>Sub Link 3</span></a>
+                <li><a href="#"><span>Sub Link 4</span></a>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><span>Link 4</span></a>
+            <ul>
+                <li><a href="#"><span>Sub Link 1</span></a>
+                <li><a href="#"><span>Sub Link 2</span></a>
+                <li><a href="#"><span>Sub Link 3</span></a>
+                <li><a href="#"><span>Sub Link 4</span></a>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><span>Link 5</span></a>
+        </li>
+    </ul>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</header>
+	
+		<main id="site-main" role="main">
+	  		
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Style Guide</h1>
+
+            <hr />
+
+            <!-- Colors -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Colors</h2>
+        
+                    <div class="color-block color-primary">
+                        Color Primary
+                    </div>
+        
+                    <div class="color-block color-secondary">
+                        Color Secondary
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Headings -->
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Headings</h2>
+        
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                </div>
+    
+                <!-- Text Styles -->
+    
+                <div class="col-md-4">
+                    <h2>Text Styles</h2>
+        
+                    <p><strong>This is a paragraph</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. <em>Ipsum ab cumque</em> veniam nisi nihil at        quaerat. Totam tempora quo magni commodi ipsa. Alias ducimus <strike>aut voluptate</strike>, esse est inventore dolore.</p>
+        
+        
+                    <p class="larger">class="larger"</p>
+                    <p class="largest">class="largest"</p>
+                    <p class="smaller">class="smaller"</p>
+                    <p class="smallest">class="smallest"</p>
+        
+                    <p><a href="#">This is a link</a></p>
+        
+                    <blockquote cite="http://example.com/facts">
+                        <p>Here is a sweet Blockquote</p>
+                    </blockquote>
+                </div>
+    
+                <!-- Lists -->
+
+                <div class="col-md-4">
+                    <h2>Lists</h2>
+            
+                    <ul>
+                      <li>List item</li>
+                      <li>List item</li>
+                      <li>List item</li>
+                      <li>List item</li>
+                    </ul>
+        
+                    <ol>
+                      <li>List item</li>
+                      <li>List item</li>
+                      <li>List item</li>
+                      <li>List item</li>
+                    </ol>
+
+                    <dl>
+                        <dt>DT item</dt>
+                        <dd>DD item</dd>
+                        <dt>DT item</dt>
+                        <dd>DD item</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <hr />
+
+
+            <div class="row">
+                <div class="col-md-4">
+
+                    <!-- Tables -->
+
+                    <h2>Tables</h2>
+            
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Table Heading 1</th>
+                                <th>Table Heading 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Table Item 1</td>
+                                <td>Table Item 2</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Table Footer Item 1</td>
+                                <td>Table Footer Item 2</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="col-md-4">
+                    <h2>Buttons</h2>
+
+                    <a href="#" class="button">Button!</a>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Global Modules -->
+
+            <h2>Global Modules</h2>
+
+            <h3>Modules</h3>
+
+            <div class="module">
+                <div class="module-header">
+                    <h2>Module Header</h2>
+                </div>
+
+                <div class="module-content">
+                    <p>Module Content!</p>
+                </div>
+            </div>
+
+            <!-- Global Widgets -->
+
+            <h3>Widgets</h3>
+
+            <div class="widget">
+                <div class="widget-header">
+                    <h3>Widget Header</h3>
+                </div>
+
+                <div class="widget-content">
+                    <p>Widget Content!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+		</main>
+	
+		<footer id="site-footer" role="contentinfo">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            Copyright &copy 2016 Americaneagle.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="../../js/all.min.js"></script>
+	</body>
+</html>
