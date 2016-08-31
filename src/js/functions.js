@@ -28,7 +28,7 @@ $(document).ready(function() {
         if (!$html.hasClass("click-user")) {
             $html.removeClass("keyboard-user").addClass("click-user");
         }   
-    });
+    }); 
 
     $('body').on("keyup", function () {
         var $html = $("html");

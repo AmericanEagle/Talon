@@ -5182,6 +5182,9 @@ $(document).ready(function () {
     }); 
     **/
 
+    /** Stop referrer Phishing hack */
+    $("a[target=_blank], a[target=new]").attr("rel", "noopener noreferrer");
+
     /** Click vs. Keyboard user **/
     $('body').on("click", function () {
         var $html = $("html");
