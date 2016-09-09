@@ -120,7 +120,7 @@ gulp.task('scripts', function() {
 // Images - minification
 gulp.task('images', function() {
     notifyGeneric.s = gsize();
-    return gulp.src('src/images/*')
+    return gulp.src('src/images/**/*')
         .pipe(imagemin())
         .pipe(notifyGeneric.s)
         .pipe(notify(notifyGeneric))
